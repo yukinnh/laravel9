@@ -10,9 +10,11 @@
     <body>
         <h1>Blog Name</h1>
         <a href='/posts/create'>create</a>
+        <a href='/blocks/index'>blocks</a>
+        <a href='/subjects/index'>subjects</a>
         <div class='posts'>
             @foreach ($posts as $post)
-            <p>{{$post}}</p>
+            <p>{{$post }}</p>
                 <div class='post'>
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>

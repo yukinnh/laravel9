@@ -12,13 +12,20 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
-        'category_id'
+        'category_id',
+        'image',
     ];
     
     //「1対多」の関係なので単数系に
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+    
+    // 多対多のリレーションを定義
+    public function blocks()
+    {
+        return $this->belongsToMany('App\Models\Block');
     }
     
     public function getPaginateByLimit(int $limit_count = 10){

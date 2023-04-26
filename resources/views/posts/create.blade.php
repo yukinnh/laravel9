@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="title">
                 <h2>Title</h2>
@@ -26,6 +26,18 @@
                     @endforeach
                 </select>
             </div>
+            <div class="block">
+                <h2>Block</h2>
+                @foreach($blocks as $block)
+                    <input type="checkbox" name="block[]" value="{{ $block->id }}"/>
+                    <label> {{ $block->name }} </label>
+                @endforeach
+            </div>
+            <!-- cloudinary -->
+            <div class="image">
+                <input type="file" name="image">
+            </div>
+            <!-- cloudinary -->
             <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/">back</a>]</div>

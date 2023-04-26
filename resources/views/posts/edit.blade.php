@@ -13,6 +13,14 @@
                 <h2>本文</h2>
                 <input type='text' name='post[body]' value="{{ $post->body }}">
             </div>
+            <div class='content_block'>
+                @foreach($blocks as $block)
+                    <input type="checkbox" name="block[]" value="{{ $block->id }}"
+                     {{ $post->blocks->where('id', '=', $block->id)->first() !== null  ? 'checked' : ''}}
+                    />
+                    <label> {{ $block->name }} </label>
+                @endforeach
+            </div>
             <input type="submit" value="保存">
         </form>
     </div>
